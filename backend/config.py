@@ -39,7 +39,8 @@ class Settings(BaseSettings):
     cors_origins: list[str] = [
         "http://localhost:4200", 
         "http://0.0.0.0:4200",
-        "https://main.df6vx67ik4zc9.amplifyapp.com"
+        "https://main.df6vx67ik4zc9.amplifyapp.com",
+       "https://main.d3b0rsi483oarz.amplifyapp.com"
     ]
 
     # Cookie Configuration
