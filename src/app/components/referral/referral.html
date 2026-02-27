@@ -1,0 +1,121 @@
+<div class="header">
+    <div class="header-left">
+        <button class="back-btn" (click)="goBack()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+        </button>
+        <span class="title">Refer & Earn</span>
+    </div>
+</div>
+
+<div class="container" *ngIf="!isLoading">
+    <!-- Earnings Card -->
+    <div class="earnings-card">
+        <div class="earnings-title">You've earned Rs.{{ totalEarned | number }}</div>
+        <div class="earnings-subtitle">You're missing out on Rs.{{ (goalAmount - totalEarned) | number }}</div>
+
+        <div class="progress-section">
+            <div class="progress-labels">
+                <span>Total Earned</span>
+                <span>Goal: Rs.{{ goalAmount | number }}</span>
+            </div>
+            <div class="progress-bar-bg">
+                <div class="progress-bar-fill" [style.width.%]="progressPercent"></div>
+            </div>
+            <div class="progress-stats">
+                <span>Rs.{{ totalEarned | number }}</span>
+                <span>{{ successfulInvites }} / {{ totalInvites }} Friends</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Invite Action -->
+    <div class="invite-section">
+        <button class="invite-btn" (click)="showInviteForm = !showInviteForm">
+            <span class="icon">📱</span>
+            {{ showInviteForm ? 'Close Invite Form' : 'Invite friends directly' }}
+        </button>
+        <div class="invite-subtext">Select contacts & we'll do the rest</div>
+    </div>
+
+    <!-- Manual Invite Form -->
+    <div class="manual-invite-form" *ngIf="showInviteForm">
+        <input type="text" placeholder="Friend's Name" [(ngModel)]="inviteName" class="form-input">
+        <input type="tel" placeholder="Phone Number (10 digits)" [(ngModel)]="invitePhone" class="form-input">
+        <button class="whatsapp-share-btn" (click)="inviteFriend()" [disabled]="isInviting">
+            {{ isInviting ? 'Processing...' : 'Share on WhatsApp' }}
+        </button>
+    </div>
+
+    <!-- Referral Link -->
+    <div class="link-section">
+        <div class="link-label">YOUR UNIQUE REFERRAL LINK</div>
+        <div class="link-box">
+            <span class="link-text">{{ referralLink }}</span>
+            <button class="copy-btn" (click)="copyLink()">Copy</button>
+        </div>
+    </div>
+
+    <!-- Social Share Buttons -->
+
+
+    <!-- Stats Grid -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-value">{{ totalInvites }}</div>
+            <div class="stat-label">Total Invites</div>
+        </div>
+        <div class="stat-card highlight">
+            <div class="stat-value">Rs.{{ totalEarned | number }}</div>
+            <div class="stat-label">Total Earned</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">{{ successfulInvites }}</div>
+            <div class="stat-label">Successful</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-value">{{ pendingInvites }}</div>
+            <div class="stat-label">Pending</div>
+        </div>
+    </div>
+
+    <!-- Referrals List -->
+    <div class="referrals-list-section">
+        <div class="tabs">
+            <button class="tab" [class.active]="activeTab === 'joined'" (click)="activeTab = 'joined'">Joined ({{
+                successfulInvites }})</button>
+            <button class="tab" [class.active]="activeTab === 'pending'" (click)="activeTab = 'pending'">Pending ({{
+                pendingInvites }})</button>
+        </div>
+
+        <div class="list-container">
+            <div class="empty-state" *ngIf="filteredInvites.length === 0">
+                No {{ activeTab }} referrals yet.
+            </div>
+
+            <div class="referral-item" *ngFor="let item of filteredInvites">
+                <div class="avatar-circle">
+                    {{ item.name.charAt(0).toUpperCase() }}
+                </div>
+                <div class="item-details">
+                    <div class="item-name">{{ item.name }}</div>
+                    <div class="item-status" *ngIf="item.status === 'Pending'">
+                        Clicked link {{ item.clicked_count || 0 }} times
+                    </div>
+                    <div class="item-status success" *ngIf="item.status === 'Successful'">
+                        Joined
+                    </div>
+                </div>
+                <!-- Optional: Remind button for pending -->
+                <button class="remind-btn" *ngIf="item.status === 'Pending'" (click)="remindFriend(item)">
+                    Remind
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="loading" *ngIf="isLoading">
+    Loading...
+</div>

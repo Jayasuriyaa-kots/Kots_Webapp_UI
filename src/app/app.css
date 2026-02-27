@@ -1,0 +1,23 @@
+/* App Root Container - Mobile UX */
+:host {
+    display: block;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    /* Dynamic viewport height for mobile */
+    background-color: #0a0a0a;
+    overflow-x: hidden;
+    position: relative;
+
+    /* Prevent horizontal swipe navigation */
+    touch-action: pan-y pinch-zoom;
+    overscroll-behavior-x: none;
+}
+
+/* Ensure router outlet content fills properly */
+router-outlet+* {
+    display: block;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+}

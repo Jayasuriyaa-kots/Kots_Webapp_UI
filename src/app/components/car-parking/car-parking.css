@@ -1,0 +1,151 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    height: 100vh;
+    height: 100dvh;
+    background-color: #fff;
+    color: #333;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* Header */
+.header {
+    background-color: #0a0a0a;
+    color: #ffffff;
+    padding: 16px 20px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    margin: 0 -20px;
+}
+
+.back-btn,
+.notification-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+}
+
+.booking-id {
+    padding: 6px 16px;
+    border-radius: 20px;
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    font-size: 12px;
+    font-weight: 500;
+    color: #ffffff;
+    background: transparent;
+}
+
+.notification-btn {
+    position: relative;
+}
+
+.dot {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 8px;
+    height: 8px;
+    background-color: #ffd700;
+    border-radius: 50%;
+}
+
+.page-title {
+    font-size: 1.8em;
+    font-weight: 800;
+    color: #2c2c2c;
+    margin: 16px 0 0 0;
+    flex-shrink: 0;
+    text-align: center;
+    width: 100%;
+}
+
+/* Main Content - Centered full page */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+    gap: 20px;
+}
+
+.illustration-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.illustration {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    object-fit: contain;
+}
+
+.subscribed-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2c2c2c;
+    margin: 0;
+    text-align: center;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 10px 40px;
+    border-radius: 30px;
+    background-color: #e8f5e9;
+    color: #2ECC71;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* Footer */
+.footer {
+    margin-top: auto;
+    width: 100%;
+    padding: 16px 0;
+    padding-bottom: max(16px, env(safe-area-inset-bottom));
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-pay-now {
+    background-color: #AFA11E;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+}

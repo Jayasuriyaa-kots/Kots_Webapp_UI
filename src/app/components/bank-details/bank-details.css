@@ -1,0 +1,190 @@
+:host {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    backdrop-filter: blur(2px);
+    animation: fadeIn 0.3s ease-out;
+}
+
+.bottom-sheet {
+    width: 100%;
+    max-width: 500px;
+    background-color: #FAF8F0;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding: 30px 24px 40px;
+    box-sizing: border-box;
+    animation: slideUp 0.3s ease-out;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2c2c2c;
+    margin: 0 0 24px 0;
+}
+
+.bank-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-row {
+    display: flex;
+    gap: 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+.half-width {
+    width: 50%;
+}
+
+/* Dropdown Container */
+.bank-dropdown {
+    position: relative;
+}
+
+/* Dropdown List */
+.bank-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 250px;
+    /* Wider to show full names */
+    max-height: 200px;
+    overflow-y: auto;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 4px 0 0;
+    padding: 0;
+    list-style: none;
+    z-index: 20;
+    /* Higher than other elements */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.bank-list li {
+    padding: 12px 14px;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+    border-bottom: 1px solid #f5f5f5;
+    transition: background-color 0.2s;
+}
+
+.bank-list li:last-child {
+    border-bottom: none;
+}
+
+.bank-list li:hover {
+    background-color: #FAF8F0;
+    color: #AFA11E;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+}
+
+.required {
+    color: #EF4444;
+    margin-left: 2px;
+}
+
+.form-input {
+    width: 100%;
+    height: 48px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 0 16px;
+    font-size: 16px;
+    color: #2c2c2c;
+    box-sizing: border-box;
+    background-color: #fff;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.form-input:focus {
+    border-color: #AFA11E;
+}
+
+.form-input::placeholder {
+    color: #ccc;
+}
+
+.terms-text {
+    font-size: 12px;
+    color: #333;
+    margin: 4px 0 16px;
+    line-height: 1.4;
+}
+
+.submit-btn {
+    width: 100%;
+    height: 52px;
+    background-color: #AFA11E;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.submit-btn:hover {
+    background-color: #9e9118;
+}
+
+.submit-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

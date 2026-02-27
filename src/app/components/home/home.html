@@ -1,0 +1,131 @@
+<div class="home-container" [class.payment-caution]="showPaymentAlert">
+  <!-- Header -->
+  <header class="header header-centered">
+    <!-- Left: Kots Logo -->
+    <div class="header-left">
+      <img src="assets/images/kotslogo.png" alt="Kots Logo" class="kots-logo" />
+    </div>
+
+    <!-- Center: Booking ID with Dropdown -->
+    <div class="header-center">
+      <div class="booking-selector" (click)="toggleBookingDropdown($event)">
+        <span class="booking-id">{{ userId }}</span>
+        <span class="dropdown-arrow" *ngIf="hasMultipleBookings">▼</span>
+      </div>
+
+      <!-- Booking Dropdown -->
+      <div class="booking-dropdown" *ngIf="showBookingDropdown && hasMultipleBookings">
+        <div class="dropdown-item" *ngFor="let booking of allBookings" [class.active]="booking.id === userId"
+          (click)="selectBooking(booking)">
+          {{ booking.displayName }}
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Notification + Profile -->
+    <div class="header-right">
+      <button class="notification-btn" (click)="openNotifications()">
+        <img src="assets/images/notification-icon.svg" alt="Notifications" />
+
+      </button>
+
+      <div class="user-profile-btn" (click)="openProfile()">
+        <img src="assets/images/user-avatar.svg" alt="User" class="avatar" />
+      </div>
+    </div>
+  </header>
+
+  <!-- Dropdown Overlay -->
+  <div class="dropdown-overlay" *ngIf="showBookingDropdown" (click)="closeBookingDropdown()"></div>
+
+  <!-- Greeting -->
+  <div class="greeting">
+    <h1>Hello</h1>
+    <p>{{ userName }}</p>
+  </div>
+
+  <!-- Announcements -->
+  <section class="announcements-section">
+    <div class="section-header">
+      <h2>Announcements</h2>
+    </div>
+
+    <!-- Carousel -->
+    <div class="announcement-carousel">
+      <div class="announcement-track" [style.transform]="'translateX(-' + (currentAnnouncementIndex * 100) + '%)'">
+        <div class="announcement-card" *ngFor="let announcement of announcements"
+          [class.refer]="announcement.action === 'refer'" (click)="handleAnnouncementClick(announcement)">
+          <div class="announcement-content">
+            <span class="announcement-date">
+              Today : {{ announcement.date }}
+            </span>
+
+            <h3>{{ announcement.title }}</h3>
+
+            <p>{{ announcement.description }}</p>
+
+            <!-- Dots -->
+            <div class="announcement-dots">
+              <span class="dot" *ngFor="let dot of announcements; let j = index"
+                [class.active]="j === currentAnnouncementIndex"
+                (click)="goToAnnouncement(j); $event.stopPropagation()"></span>
+            </div>
+          </div>
+
+          <div class="announcement-icon">
+            <img [src]="announcement.icon" alt="Announcement" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Payment Section -->
+  @if(showPaymentAlert) {
+  <section class="payment-section" [ngClass]="paymentAlertClass">
+    <div class="payment-left">
+      <div class="payment-info">
+        <div class="amount">₹ {{ rentAmount | number }}.</div>
+        <div class="payment-message">
+          {{ paymentMessage }}
+        </div>
+      </div>
+    </div>
+
+    <button class="pay-btn" [class.danger]="paymentStatus === 'overdue'" (click)="payRent()">
+      Pay rent >
+    </button>
+  </section>
+  }
+
+
+  <!-- Menu Grid -->
+  <section class="menu-grid">
+    <div class="menu-card" *ngFor="let item of menuItems" [ngClass]="{
+      'ticket-history': item.key === 'tickets',
+      'payment-history': item.key === 'payments',
+      'car-parking': item.key === 'parking',
+      'contract-card': item.key === 'contract',
+      'services-card': item.key === 'services',
+      'refer-card': item.key === 'refer'
+  }" (click)="navigateToMenu(item.route)">
+
+      <div class="menu-icon">
+        <img [src]="item.icon" [alt]="item.title">
+      </div>
+
+      <span class="menu-title">{{ item.title }}</span>
+    </div>
+  </section>
+
+  <!-- Notice to Vacate Button -->
+  <button class="notice-vacate-btn" (click)="navigateToMenu('/contract')">
+    Notice to Vacate
+  </button>
+
+  <!-- Chatbot Button -->
+  <button class="chatbot-btn" (click)="openChatbot()">
+    <img src="assets/images/chatbot-icon.svg" alt="Chat">
+  </button>
+</div>

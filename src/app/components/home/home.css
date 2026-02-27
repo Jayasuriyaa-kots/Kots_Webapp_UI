@@ -1,0 +1,1731 @@
+:host {
+  display: block;
+  height: 100vh;
+  height: 100dvh;
+  /* Fixed viewport for mobile */
+  background-color: #0a0a0a;
+  overflow: hidden;
+  /* Host doesn't scroll, container does */
+}
+
+.home-container {
+  height: 100%;
+  width: 100%;
+  background-color: #0a0a0a;
+  color: #ffffff;
+  padding: 20px;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow-y: auto;
+  /* ✅ Scrollable content */
+  overflow-x: hidden;
+  position: relative;
+
+  /* Smooth scrolling */
+  -webkit-overflow-scrolling: touch;
+
+  /* Ensure bottom content isn't cut off */
+  padding-bottom: 100px;
+}
+
+
+/* Payment alert styling removed - kept for potential future use */
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.company-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.user-id {
+  font-size: 11px;
+  color: #888888;
+}
+
+.notification-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.notification-btn img {
+  width: 26px;
+  height: 26px;
+}
+
+/* Greeting */
+.greeting {
+  margin-bottom: 8px;
+  flex-shrink: 0;
+}
+
+.greeting h1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.greeting p {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0;
+  color: #ffffff;
+  line-height: 1;
+}
+
+/* Announcements */
+.announcements-section {
+  margin-bottom: 0px;
+  flex-shrink: 0;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.section-header h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  color: #ffffff;
+}
+
+.badge {
+  background-color: #d4af37;
+  color: #000000;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* =========================
+   ANNOUNCEMENT CAROUSEL
+========================= */
+
+.announcement-carousel {
+  position: relative;
+  width: 100%;
+  height: 130px;
+  overflow: hidden;
+}
+
+/* Track that slides */
+.announcement-track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s ease-in-out;
+}
+
+/* Single slide */
+.announcement-card {
+  min-width: 100%;
+  height: 100%;
+
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  border-radius: 16px;
+  padding: 16px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+
+  box-sizing: border-box;
+}
+
+/* Content */
+.announcement-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.announcement-date {
+  font-size: 12px;
+  color: #888888;
+  margin-bottom: 6px;
+}
+
+.announcement-card h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 0 6px 0;
+  color: #ffffff;
+}
+
+.announcement-card p {
+  font-size: 12px;
+  color: #b3b3b3;
+  margin: 0 0 10px 0;
+  line-height: 1.3;
+}
+
+/* Dots */
+.announcement-dots {
+  display: flex;
+  gap: 5px;
+}
+
+.dot {
+  width: 20px;
+  height: 3px;
+  background-color: #333333;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: #d4af37;
+}
+
+/* Icon */
+.announcement-icon {
+  width: 90px;
+  height: 90px;
+  flex-shrink: 0;
+}
+
+.announcement-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+
+/* =========================
+   PAYMENT SECTION (FINAL)
+========================= */
+
+/* Plain Payment Section (NO bg, NO border) */
+.payment-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0;
+  margin: 0 0 6px 0;
+  background: transparent;
+  border: none;
+  flex-wrap: nowrap;
+}
+
+/* Left side container for amount and referral */
+.payment-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+}
+
+
+/* Left amount block (Frame 59734) */
+.payment-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+
+  flex: none;
+  width: auto;
+}
+
+.amount {
+  font-size: 22px;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.payment-message {
+  font-size: 11px;
+  color: #b3b3b3;
+  line-height: 1.2;
+}
+
+/* Pay rent pill button */
+/* Pay Rent Button – Figma Component 33 */
+.pay-btn {
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 2px 9px;
+  width: 109px;
+  height: 39px;
+
+  background-color: #AFA11E;
+  color: #000000;
+
+  border: none;
+  border-radius: 37px;
+
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+
+  cursor: pointer;
+
+  /* Shadow (from Figma) */
+  box-shadow: 0px 4px 0px rgba(175, 161, 30, 0.5);
+
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.pay-btn:hover {
+  filter: brightness(1.05);
+}
+
+.pay-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0px 2px 0px rgba(175, 161, 30, 0.5);
+}
+
+.pay-btn .arrow {
+  font-size: 14px;
+}
+
+/* Overdue Payment Button */
+.pay-btn.danger {
+  background-color: #EF4444;
+  /* Figma-style red */
+  color: #ffffff;
+
+  box-shadow: 0px 4px 0px rgba(239, 68, 68, 0.5);
+}
+
+.pay-btn.danger:hover {
+  filter: brightness(1.05);
+}
+
+.pay-btn.danger:active {
+  transform: translateY(1px);
+  box-shadow: 0px 2px 0px rgba(239, 68, 68, 0.5);
+}
+
+.header-centered {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.header-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-align: center;
+}
+
+.company-name-center {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.booking-id {
+  padding: 8px 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.kots-logo {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+.user-profile-btn {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+
+@media (max-width: 480px) {
+  .company-name-center {
+    font-size: 14px;
+  }
+
+  .booking-id {
+    font-size: 12px;
+    padding: 5px 12px;
+  }
+}
+
+
+
+
+/* Menu Grid */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  /* ✅ prevents overflow */
+  gap: 12px;
+
+  flex: 0 0 auto;
+  /* ✅ don’t force it to fill and clip */
+  margin-top: 10px;
+}
+
+
+
+/* Tablet / small desktop */
+@media (max-width: 1024px) {
+  .home-container {
+    padding: 16px;
+  }
+
+  .menu-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+}
+
+/* Small screens */
+@media (max-width: 480px) {
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu-card {
+    min-height: 150px;
+    padding: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  /* All cards – smaller icons */
+  .menu-icon {
+    width: 70px;
+    /* ⬆️ bigger */
+    height: 70px;
+    margin-bottom: 12px;
+  }
+
+
+  .menu-card .menu-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transform: scale(0.85);
+  }
+
+  /* Car parking – slightly bigger but controlled */
+  .menu-card.car-parking .menu-icon {
+    width: 90px;
+    height: 90px;
+    right: -10px;
+    bottom: -14px;
+  }
+
+  .menu-card.car-parking .menu-icon img {
+    transform: scale(0.9);
+  }
+}
+
+
+
+.menu-card.ticket-history .menu-title,
+.menu-card.payment-history .menu-title,
+.menu-card.car-parking .menu-title,
+.menu-card.contract-card .menu-title,
+.menu-card.services-card .menu-title,
+.menu-card.refer-card .menu-title {
+  font-family: 'Inter', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #f5f5f5;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, #ffffff 0%, #d4af37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+
+
+.menu-card {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-card:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #2a2a2a 0%, #3a3a3a 100%);
+}
+
+.menu-icon {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 12px;
+}
+
+.menu-icon img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  /* use cover if you want crop */
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.menu-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+/* Notice to Vacate Button */
+.notice-vacate-btn {
+  width: 100%;
+  padding: 16px 24px;
+  margin-top: 16px;
+
+  background: transparent;
+  border: 2px solid #d4af37;
+  border-radius: 12px;
+
+  color: #d4af37;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.notice-vacate-btn:hover {
+  background: rgba(212, 175, 55, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+}
+
+.notice-vacate-btn:active {
+  transform: translateY(0);
+}
+
+/* Support Button (Floating) */
+.chatbot-btn {
+  position: fixed;
+  /* ✅ Floats with scroll */
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #d4af37;
+  border: none;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.45);
+  z-index: 1000;
+  /* ✅ Stays above cards */
+
+  /* 🔥 floating animation */
+  animation: floatUpDown 2.2s ease-in-out infinite;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.chatbot-btn:hover {
+  animation-play-state: paused;
+  transform: translateX(-50%) translateY(-2px) scale(1.08);
+  /* Adjusted to keep it centered */
+  box-shadow: 0 8px 18px rgba(212, 175, 55, 0.5);
+}
+
+
+.chatbot-btn img {
+  width: 26px;
+  height: 26px;
+}
+
+@keyframes floatUpDown {
+  0% {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(-24px);
+    /* 🔥 higher lift */
+  }
+
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+
+
+/* Responsive */
+@media (max-width: 480px) {
+  .home-container {
+    padding: 16px;
+  }
+
+  .greeting h1,
+  .greeting p {
+    font-size: 28px;
+  }
+
+  .announcement-card {
+    height: 110px;
+  }
+
+  .payment-section {
+    height: 75px;
+  }
+
+  .amount {
+    font-size: 22px;
+  }
+}
+
+/* =========================
+   TICKET HISTORY CARD
+========================= */
+
+/* =========================
+   TICKET HISTORY CARD
+========================= */
+
+.menu-card.ticket-history {
+  /* Keep same color */
+  background: linear-gradient(130.89deg,
+      #292d32 3.68%,
+      #4f5761 50.83%,
+      #292d32 83.92%);
+
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+
+  /* Fit properly in your grid cell */
+  width: 100%;
+  min-height: 190px;
+
+  /* Layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+/* Bigger title */
+.menu-card.ticket-history .menu-title {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  line-height: 1.1;
+
+  color: #ffffff;
+  display: inline-block;
+  max-width: fit-content;
+
+  z-index: 2;
+}
+
+
+/* Bigger image - but still fits */
+.menu-card.ticket-history .menu-icon {
+  position: absolute;
+
+  right: 8px;
+  /* keep inside the box */
+  bottom: -10px;
+
+  width: 140px;
+  /* Consistent size across all devices */
+  height: 140px;
+
+  opacity: 0.95;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Make sure image scales correctly */
+.menu-card.ticket-history .menu-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Subtle glow */
+.menu-card.ticket-history::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at bottom right,
+      rgba(212, 175, 55, 0.15),
+      transparent 60%);
+  z-index: 0;
+}
+
+/* Optional hover (keeps your style) */
+.menu-card.ticket-history:hover {
+  transform: translateY(-2px);
+}
+
+
+/* =========================
+   PAYMENT HISTORY CARD
+========================= */
+
+.menu-card.payment-history {
+  background: linear-gradient(130.89deg,
+      #292d32 3.68%,
+      #4f5761 50.83%,
+      #292d32 83.92%);
+
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+
+  width: 100%;
+  min-height: 190px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+.menu-card.payment-history .menu-title {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  line-height: 1.1;
+
+  color: #ffffff;
+  display: inline-block;
+  max-width: fit-content;
+  z-index: 2;
+}
+
+.menu-card.payment-history .menu-icon {
+  position: absolute;
+  right: 8px;
+  bottom: -10px;
+
+  width: 140px;
+  height: 140px;
+
+  opacity: 0.95;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.menu-card.payment-history .menu-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.menu-card.payment-history::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at bottom right,
+      rgba(212, 175, 55, 0.15),
+      transparent 60%);
+  z-index: 0;
+}
+
+.menu-card.payment-history:hover {
+  transform: translateY(-2px);
+}
+
+
+/* =========================
+   CAR PARKING CARD
+========================= */
+
+.menu-card.car-parking {
+  background: linear-gradient(130.89deg,
+      #292d32 3.68%,
+      #4f5761 50.83%,
+      #292d32 83.92%);
+
+  border-radius: 16px;
+  position: relative;
+  overflow: visible;
+  perspective: 900px;
+
+  width: 100%;
+  min-height: 190px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+.menu-card.car-parking .menu-title {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  line-height: 1.1;
+
+  color: #ffffff;
+  display: inline-block;
+  max-width: fit-content;
+  z-index: 2;
+}
+
+/* Big icon like others */
+.menu-card.car-parking .menu-icon {
+  position: absolute;
+
+  right: -20px;
+  /* push slightly outside */
+  bottom: -30px;
+  /* push more down */
+
+  width: 160px;
+  /* Consistent bigger car */
+  height: 160px;
+
+  z-index: 3;
+  pointer-events: none;
+}
+
+
+.menu-card.car-parking .menu-icon img {
+  transform:
+    rotateX(14deg) rotateY(-22deg) translateZ(35px);
+
+  filter: drop-shadow(0 35px 35px rgba(0, 0, 0, 0.6));
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+
+.menu-card.car-parking .menu-icon::after {
+  content: "";
+  position: absolute;
+
+  bottom: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 75%;
+  height: 22px;
+
+  background: radial-gradient(ellipse at center,
+      rgba(0, 0, 0, 0.6),
+      transparent 70%);
+
+  filter: blur(10px);
+  z-index: -1;
+}
+
+
+.menu-card.car-parking:hover .menu-icon img {
+  transform:
+    rotateX(10deg) rotateY(-18deg) translateZ(50px);
+
+  filter: drop-shadow(0 45px 45px rgba(0, 0, 0, 0.65));
+}
+
+
+
+
+.menu-card.car-parking::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at bottom right,
+      rgba(212, 175, 55, 0.15),
+      transparent 60%);
+  z-index: 0;
+}
+
+.menu-card.car-parking:hover {
+  transform: translateY(-2px);
+}
+
+
+/* =========================
+   CONTRACT CARD
+========================= */
+
+.menu-card.contract-card {
+  background: linear-gradient(130.89deg,
+      #292d32 3.68%,
+      #4f5761 50.83%,
+      #292d32 83.92%);
+
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+
+  width: 100%;
+  min-height: 190px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+.menu-card.contract-card .menu-title {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  line-height: 1.1;
+
+  color: #ffffff;
+  display: inline-block;
+  max-width: fit-content;
+  z-index: 2;
+}
+
+/* Big icon */
+.menu-card.contract-card .menu-icon {
+  position: absolute;
+  right: 8px;
+  bottom: -10px;
+
+  width: 140px;
+  height: 140px;
+
+  opacity: 0.95;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.menu-card.contract-card .menu-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Glow */
+.menu-card.contract-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at bottom right,
+      rgba(212, 175, 55, 0.15),
+      transparent 60%);
+  z-index: 0;
+}
+
+.menu-card.contract-card:hover {
+  transform: translateY(-2px);
+}
+
+
+/* =========================
+   SERVICES CARD
+========================= */
+
+.menu-card.services-card {
+  background: linear-gradient(130.89deg,
+      #292d32 3.68%,
+      #4f5761 50.83%,
+      #292d32 83.92%);
+
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+
+  width: 100%;
+  min-height: 190px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+.menu-card.services-card .menu-title {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  line-height: 1.1;
+
+  color: #ffffff;
+  display: inline-block;
+  max-width: fit-content;
+  z-index: 2;
+}
+
+.menu-card.services-card .menu-icon {
+  position: absolute;
+  right: 8px;
+  bottom: -10px;
+
+  width: 140px;
+  height: 140px;
+
+  opacity: 0.95;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.menu-card.services-card .menu-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.menu-card.services-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at bottom right,
+      rgba(212, 175, 55, 0.15),
+      transparent 60%);
+  z-index: 0;
+}
+
+.menu-card.services-card:hover {
+  transform: translateY(-2px);
+}
+
+
+/* =========================
+   REFERRAL CARD
+========================= */
+
+.menu-card.refer-card {
+  background: linear-gradient(130.89deg,
+      #292d32 3.68%,
+      #4f5761 50.83%,
+      #292d32 83.92%);
+
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+
+  width: 100%;
+  min-height: 190px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+.menu-card.refer-card .menu-title {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  line-height: 1.1;
+
+  color: #ffffff;
+  display: inline-block;
+  max-width: fit-content;
+  z-index: 2;
+}
+
+.menu-card.refer-card .menu-icon {
+  position: absolute;
+  right: 5px;
+  bottom: -10px;
+
+  width: 150px;
+  height: 150px;
+
+  opacity: 0.95;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.menu-card.refer-card .menu-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.menu-card.refer-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at bottom right,
+      rgba(212, 175, 55, 0.15),
+      transparent 60%);
+  z-index: 0;
+}
+
+.menu-card.refer-card:hover {
+  transform: translateY(-2px);
+}
+
+/* =========================
+   CONSISTENT ICON SIZES ACROSS ALL DEVICES
+   No media query overrides - same size everywhere
+========================= */
+
+
+
+/* =========================
+   REFERRAL BUTTON & MODAL
+========================= */
+
+/* Referral button (in payment section) - small, left-aligned */
+.referral-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  background-color: transparent;
+  color: #d4af37;
+  border: 1px solid #d4af37;
+  border-radius: 16px;
+  font-size: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  height: auto;
+  /* Allow growth */
+}
+
+.referral-text,
+.referral-text-center {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.2;
+}
+
+.referral-text-center {
+  align-items: center;
+}
+
+.referral-teaser {
+  font-size: 10px;
+  color: #ffffff;
+  opacity: 0.8;
+  font-weight: 400;
+}
+
+.referral-btn:hover {
+  background-color: rgba(212, 175, 55, 0.1);
+}
+
+/* Standalone referral button section */
+.referral-section {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.referral-btn.standalone {
+  padding: 12px 24px;
+  font-size: 14px;
+}
+
+/* Modal overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Referral modal */
+.referral-modal {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 400px;
+  padding: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Modal header */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.modal-header h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: #888888;
+  font-size: 28px;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  transition: color 0.2s ease;
+}
+
+.close-btn:hover {
+  color: #ffffff;
+}
+
+/* Modal body */
+.modal-body {
+  margin-bottom: 24px;
+}
+
+.helper-text {
+  font-size: 14px;
+  color: #b3b3b3;
+  margin: 0 0 20px 0;
+  line-height: 1.4;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-group label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 14px 16px;
+  background-color: #333333;
+  border: 1px solid #444444;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s ease;
+  box-sizing: border-box;
+}
+
+.input-group input:focus {
+  border-color: #d4af37;
+}
+
+.input-group input::placeholder {
+  color: #666666;
+}
+
+.input-group input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Messages */
+.error-message {
+  color: #ef4444;
+  font-size: 13px;
+  margin: 12px 0 0 0;
+  padding: 10px 12px;
+  background-color: rgba(239, 68, 68, 0.1);
+  border-radius: 6px;
+}
+
+.success-message {
+  color: #4ade80;
+  font-size: 13px;
+  margin: 12px 0 0 0;
+  padding: 10px 12px;
+  background-color: rgba(74, 222, 128, 0.1);
+  border-radius: 6px;
+}
+
+/* Modal actions */
+.modal-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.cancel-btn {
+  flex: 1;
+  padding: 14px 20px;
+  background-color: transparent;
+  border: 1px solid #444444;
+  border-radius: 8px;
+  color: #b3b3b3;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cancel-btn:hover:not(:disabled) {
+  background-color: #333333;
+  border-color: #555555;
+}
+
+.cancel-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.apply-btn {
+  flex: 1;
+  padding: 14px 20px;
+  background-color: #d4af37;
+  border: none;
+  border-radius: 8px;
+  color: #000000;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.apply-btn:hover:not(:disabled) {
+  filter: brightness(1.1);
+}
+
+.apply-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Loading spinner */
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid transparent;
+  border-top-color: #000000;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================
+   REFERRAL LINK BOX
+========================= */
+
+.referral-link-box {
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 16px;
+}
+
+.link-label {
+  font-size: 12px;
+  color: #888888;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.link-container {
+  display: flex;
+  gap: 8px;
+  align-items: stretch;
+}
+
+.link-input {
+  flex: 1;
+  padding: 12px 14px;
+  background-color: #333333;
+  border: 1px solid #444444;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 13px;
+  outline: none;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.link-input:focus {
+  border-color: #d4af37;
+}
+
+.copy-btn {
+  padding: 12px 16px;
+  background-color: #d4af37;
+  border: none;
+  border-radius: 8px;
+  color: #000000;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.copy-btn:hover {
+  filter: brightness(1.1);
+}
+
+.copy-btn.copied {
+  background-color: #4ade80;
+  color: #000000;
+}
+
+/* Share actions */
+.share-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.share-btn {
+  flex: 1;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.share-btn.whatsapp {
+  background-color: #25d366;
+  color: #ffffff;
+}
+
+.share-btn.whatsapp:hover {
+  filter: brightness(1.1);
+}
+
+.share-btn.native {
+  background-color: #3b82f6;
+  color: #ffffff;
+}
+
+.share-btn.native:hover {
+  filter: brightness(1.1);
+}
+
+.share-icon {
+  font-size: 16px;
+}
+
+.whatsapp-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* ================= BOOKING DROPDOWN ================= */
+
+.header-center {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.booking-selector {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  padding: 4px 12px;
+  background-color: #d4af37;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.booking-selector:active {
+  transform: scale(0.95);
+}
+
+.booking-selector .booking-id {
+  font-size: 12px;
+  font-weight: 600;
+  color: #000000;
+}
+
+.dropdown-arrow {
+  font-size: 8px;
+  color: #000000;
+  transition: transform 0.2s ease;
+}
+
+.booking-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 8px;
+  background-color: #2a2a2a;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  z-index: 1000;
+  min-width: 180px;
+  animation: dropdownFadeIn 0.2s ease;
+}
+
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.dropdown-item {
+  padding: 12px 16px;
+  font-size: 13px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border-bottom: 1px solid #3a3a3a;
+}
+
+.dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.dropdown-item:hover,
+.dropdown-item:active {
+  background-color: #3a3a3a;
+}
+
+.dropdown-item.active {
+  background-color: #d4af37;
+  color: #000000;
+  font-weight: 600;
+}
+
+.dropdown-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  background-color: transparent;
+}
+
+/* =========================
+   DESKTOP SPACING REFINEMENTS
+   (For screens larger than 1024px)
+========================= */
+@media (min-width: 1025px) {
+  .greeting {
+    margin-bottom: 32px !important;
+  }
+
+  .announcements-section {
+    margin-bottom: 40px !important;
+  }
+
+  .payment-section {
+    margin-bottom: 40px !important;
+  }
+
+  .menu-grid {
+    margin-top: 24px !important;
+    gap: 16px !important;
+  }
+}
+
+/* UPDATED HEADER STYLES */
+/* Header */
+.header {
+  background-color: #0a0a0a;
+  color: #ffffff;
+  padding: 16px 20px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  margin: 0 -20px;
+}
+
+.back-btn,
+.notification-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.header-center h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  color: #ffffff;
+}
+
+.booking-id {
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  font-size: 12px;
+  font-weight: 500;
+  color: #ffffff;
+  background: transparent;
+}
+
+.notification-btn {
+  position: relative;
+}

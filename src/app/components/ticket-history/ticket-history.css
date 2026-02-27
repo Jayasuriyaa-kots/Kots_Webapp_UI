@@ -1,0 +1,263 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  height: 100dvh;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+.ticket-history-container {
+  height: 100%;
+  background: linear-gradient(180deg, #0a0a0a 0%, #0a0a0a 15%, #ffffff 15%);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ── Header ── */
+.header {
+  background-color: #0a0a0a;
+  color: #ffffff;
+  padding: 16px 20px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+}
+
+.back-btn,
+.notification-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.booking-id {
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  font-size: 12px;
+  font-weight: 500;
+  color: #ffffff;
+  background: transparent;
+}
+
+.notification-btn {
+  position: relative;
+}
+
+.notification-btn img {
+  width: 24px;
+  height: 24px;
+}
+
+/* ── Content Section ── */
+.content-section {
+  flex: 1;
+  padding: 20px;
+  background-color: #ffffff;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+.page-title {
+  font-size: 1.8em;
+  font-weight: 800;
+  color: #0a0a0a;
+  margin: 0 0 24px 0;
+  text-align: center;
+  width: 100%;
+}
+
+/* Loading */
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  color: #666666;
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid #e0e0e0;
+  border-top-color: #AFA11E;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 12px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Ticket List */
+.ticket-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-bottom: 20px;
+}
+
+/* Ticket Card */
+.ticket-card {
+  background: #f5f5ee;
+  border-radius: 16px;
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.ticket-info {
+  margin-bottom: 16px;
+}
+
+.ticket-id {
+  font-size: 12px;
+  color: #888888;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.ticket-type {
+  font-size: 18px;
+  font-weight: 600;
+  color: #000000;
+  margin: 0 0 8px 0;
+}
+
+.ticket-category {
+  font-size: 14px;
+  color: #555555;
+  margin: 0 0 12px 0;
+  font-weight: 500;
+}
+
+.ticket-date {
+  font-size: 13px;
+  color: #888888;
+}
+
+/* Status Row */
+.ticket-status-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.status-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #000000;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #888888;
+}
+
+.status-dot.closed {
+  background-color: #ef4444;
+}
+
+.status-dot.open {
+  background-color: #22c55e;
+}
+
+.status-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: #888888;
+}
+
+.status-text.closed {
+  color: #ef4444;
+}
+
+.status-text.open {
+  color: #22c55e;
+}
+
+.closed-date {
+  font-size: 14px;
+  color: #000000;
+  font-weight: 500;
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 40px;
+  color: #888888;
+}
+
+/* Footer Action */
+.footer-action {
+  padding: 20px;
+  background-color: #ffffff;
+  border-top: 1px solid #f0f0f0;
+}
+
+/* Raise Ticket Button */
+.raise-ticket-btn {
+  width: 100%;
+  background-color: #AFA11E;
+  color: #ffffff;
+  border: none;
+  border-radius: 30px;
+  padding: 16px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(175, 161, 30, 0.3);
+  transition: all 0.2s ease;
+}
+
+.raise-ticket-btn:hover {
+  background-color: #9a8e1a;
+  transform: translateY(-1px);
+}
+
+.raise-ticket-btn:active {
+  transform: translateY(0);
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 24px;
+  }
+
+  .ticket-card {
+    padding: 16px;
+  }
+}

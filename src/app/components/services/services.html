@@ -1,0 +1,41 @@
+﻿<div class="header">
+    <div class="header-left">
+        <button class="back-btn" (click)="goBack()">
+            <!-- SVG Arrow for cleaner look -->
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 18l-6-6 6-6" />
+            </svg>
+        </button>
+    </div>
+
+    <div class="header-center">
+
+        <div class="booking-id">{{ userId || 'Loading...' }}</div>
+    </div>
+
+    <div class="header-right">
+        <button class="notification-btn" (click)="openNotifications()">
+            <img src="assets/images/notification-icon.svg" alt="Notifications">
+        </button>
+    </div>
+</div>
+
+<div class="container">
+    <div class="service-card" *ngFor="let service of services" (click)="selectService(service)">
+        <div class="service-content">
+            <div class="service-image">
+                <!-- Using generic placeholders if icons aren't available, but structure supports imgs -->
+                <img [src]="service.image" [alt]="service.title" onerror="this.src='assets/images/houseservice.png'">
+            </div>
+            <div class="service-details">
+                <div class="service-title">{{ service.title }}</div>
+                <div class="service-price">
+                    {{ service.pricePrefix }} <span class="highlight-price">{{ service.price }}</span>{{
+                    service.priceSuffix }}
+                </div>
+            </div>
+        </div>
+        <div class="arrow-btn">➜</div>
+    </div>
+</div>

@@ -1,0 +1,147 @@
+﻿<div class="container">
+    <!-- Header -->
+    <header class="header">
+        <button class="back-btn" (click)="goBack()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18L9 12L15 6" stroke="white" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+        </button>
+        <div class="header-center">
+
+            <span class="booking-id">{{currentBookingId || 'Loading...'}}</span>
+        </div>
+        <button class="notification-btn" (click)="openNotifications()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+            </svg>
+            <span class="dot"></span>
+        </button>
+    </header>
+
+    <h1 class="page-title">Notice</h1>
+
+    <div class="main-content">
+        <!-- STEP 1 -->
+        <div *ngIf="step === 1">
+            <div class="form-group">
+                <label>Enter Notice Start date <span class="info-icon">!</span></label>
+                <div class="input-wrapper" (click)="openNoticeStartPicker()">
+                    <input type="text" [value]="noticeStartDate" readonly>
+                    <input type="date" id="noticeStartPicker" class="hidden-date-picker"
+                        (change)="onNoticeStartDateChange($event)">
+                    <div class="calendar-icon">📅</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Contract Termination Date <span class="info-icon">!</span></label>
+                <div class="input-wrapper disabled">
+                    <input type="text" [value]="contractTerminationDate" disabled>
+                </div>
+                <!-- Separator line -->
+                <div class="separator-line"></div>
+            </div>
+
+            <div class="form-group">
+                <label>Choose the move out date <span class="info-icon">!</span></label>
+                <div class="input-wrapper" (click)="openMoveOutPicker()">
+                    <input type="text" [value]="moveOutDate" readonly>
+                    <input type="date" id="moveOutPicker" class="hidden-date-picker"
+                        (change)="onMoveOutDateChange($event)">
+                    <div class="calendar-icon">📅</div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- STEP 2: Lock-in period INCOMPLETE -->
+        <div *ngIf="step === 2">
+            <p class="policy-text">
+                If you leave before your lock-in period ends, Rs.2,500* per month for past months will be deducted
+                from your deposit. You'll also need to pay CAM fees for the remaining months along with your rent. Your
+                move-out date will be set 45 days from your notice submission.
+            </p>
+
+            <div class="warning-box">
+                <span class="warning-icon">⚠️</span>
+                <span>Lock in period is incomplete.</span>
+            </div>
+
+            <div class="summary-card">
+                <div class="summary-row">
+                    <span>Notice period date</span>
+                    <span class="summary-value">{{noticePeriodDate}}</span>
+                </div>
+                <div class="summary-row">
+                    <span>Contract termination date</span>
+                    <span class="summary-value">{{step2TerminationDate}}</span>
+                </div>
+                <div class="summary-row">
+                    <span>Move-out date</span>
+                    <span class="summary-value">{{step2MoveOutDate}}</span>
+                </div>
+            </div>
+
+            <div class="agreement-box">
+                <input type="checkbox" id="terms2" [(ngModel)]="agreedToTerms">
+                <label for="terms2">By submitting the notice, you agree to all the terms and conditions mentioned
+                    above.</label>
+            </div>
+        </div>
+
+        <!-- STEP 3: Lock-in period COMPLETE -->
+        <div *ngIf="step === 3">
+            <div class="success-box">
+                <div class="success-icon">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13.3 4.7L6 12L2.7 8.7" stroke="white" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <span>Lock in period is complete.</span>
+            </div>
+
+            <div class="summary-card bordered">
+                <div class="summary-row">
+                    <span>Notice period date</span>
+                    <span class="summary-value">{{noticePeriodDate}}</span>
+                </div>
+                <div class="summary-row">
+                    <span>Contract termination date</span>
+                    <span class="summary-value">{{step2TerminationDate}}</span>
+                </div>
+                <div class="summary-row">
+                    <span>Move-out date</span>
+                    <span class="summary-value">{{step2MoveOutDate}}</span>
+                </div>
+            </div>
+
+            <div class="agreement-box">
+                <input type="checkbox" id="terms3" [(ngModel)]="agreedToTerms">
+                <label for="terms3">By submitting the notice, you agree to all the terms and conditions mentioned
+                    above.</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <button class="btn-next" (click)="submitNotice()">Next</button>
+    </div>
+
+    <!-- Warning Modal Overlay -->
+    <div class="modal-overlay" *ngIf="showWarningModal">
+        <div class="modal">
+            <p class="modal-text">
+                Submitting this notice will set your move-out date to 45 days from today, including the notice start
+                date.
+            </p>
+            <div class="modal-actions">
+                <button class="btn-back" (click)="goBackFromModal()">Go back</button>
+                <button class="btn-proceed" (click)="proceedFromModal()">Proceed</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,137 @@
+<div class="header">
+    <div class="header-left">
+        <button class="back-btn" (click)="goBack()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 18l-6-6 6-6" />
+            </svg>
+        </button>
+    </div>
+
+    <div class="header-center">
+        <div class="title">{{ serviceName }}</div>
+    </div>
+
+    <div class="header-right"></div>
+</div>
+
+<div class="container">
+
+    <!-- Water Can: Guidelines (Show first for water) -->
+    <div class="section" *ngIf="serviceId === 'water'">
+        <div class="guidelines-box">
+            <div class="guidelines-title">Water Can Service Guidelines</div>
+            <ul class="guidelines-list">
+                <li *ngFor="let item of guidelines">{{ item }}</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Managed Service: Duration Selection -->
+    <div class="section" *ngIf="serviceId === 'managed'">
+        <div class="section-label">Choose service period</div>
+        <div class="duration-grid">
+            <div class="duration-card" *ngFor="let d of durations" [class.selected]="selectedDuration === d"
+                (click)="selectDuration(d)">
+                <span class="duration-title">{{ d.months }} Month{{ d.months > 1 ? 's' : '' }} ({{ d.days }}
+                    days)</span>
+                <span class="duration-days">{{ d.days }} days</span>
+                <span class="duration-price">Rs.{{ d.price }}</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vehicle Wash: Vehicle Selection -->
+    <div class="section" *ngIf="serviceId === 'vehicle'">
+        <div class="section-label">Vehicle Type</div>
+        <div class="vehicle-types">
+            <div class="vehicle-card" *ngFor="let v of vehicleTypes" [class.selected]="selectedVehicle === v"
+                (click)="selectVehicle(v)">
+                <div class="vehicle-title">{{ v.name }}</div>
+                <div class="vehicle-price">Rs.{{ v.price }} {{ v.unit }}</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vehicle Wash: Number Plate -->
+    <div class="section" *ngIf="serviceId === 'vehicle'">
+        <div class="section-label">Vehicle number plate</div>
+        <input type="text" class="text-input" placeholder="e.g., KA05BH7879" [(ngModel)]="vehicleNumber">
+        <div class="input-hint">Enter vehicle number (letters and numbers only, no spaces or symbols)</div>
+    </div>
+
+    <!-- Date Section (Hidden for Water) -->
+    <div class="section" *ngIf="serviceId !== 'water'">
+        <div class="section-label">{{ serviceId === 'housekeeping' ? 'Date of service' : 'Choose service period' }}
+        </div>
+
+        <div class="date-input-wrapper">
+            <!-- Start Date -->
+            <input type="date" class="date-input" [(ngModel)]="selectedDate" [min]="minDate" (change)="updateEndDate()">
+
+            <!-- End Date Display (for Subscription) -->
+            <span *ngIf="endDate" style="color: #888; margin: 0 10px;">to</span>
+            <input *ngIf="endDate" type="date" class="date-input" [value]="endDate" disabled style="opacity: 0.7;">
+        </div>
+    </div>
+
+    <!-- Time Slot Section (Only Housekeeping) -->
+    <div class="section" *ngIf="serviceId === 'housekeeping'">
+        <div class="section-label">Time slot of service</div>
+        <div class="time-slots">
+            <div class="time-chip" *ngFor="let slot of timeSlots" [class.selected]="selectedSlot === slot"
+                (click)="selectSlot(slot)">
+                {{ slot }}
+            </div>
+        </div>
+    </div>
+
+    <!-- Bill Summary -->
+    <div class="bill-card">
+        <div class="bill-header">Total Bill</div>
+
+        <div class="bill-row">
+            <span>{{ serviceName }}</span>
+            <span>Rs. {{ basePrice.toFixed(2) }}</span>
+        </div>
+
+        <div class="bill-row">
+            <span>GST (18%)</span>
+            <span>Rs. {{ gstAmount.toFixed(2) }}</span>
+        </div>
+
+        <div class="bill-divider"></div>
+
+        <div class="bill-total">
+            <span>Grand Total</span>
+            <span>Rs. {{ totalAmount.toFixed(2) }}</span>
+        </div>
+    </div>
+
+    <!-- Terms -->
+    <div class="terms-box">
+        <input type="checkbox" id="terms" [(ngModel)]="termsAccepted">
+        <label for="terms">
+            By subscribing, I agree to KOTS <span class="highlight-link">Terms and Conditions</span> and acknowledge the
+            <span class="highlight-link">Privacy Policy</span>.
+        </label>
+    </div>
+
+    <!-- Notes (Dynamic) -->
+    <div class="note-box">
+        <strong *ngIf="serviceId === 'managed'">Note:</strong> Managed services cover daily housekeeping, necessary
+        repairs involving plumbers/electricians (except material cost).
+        <strong *ngIf="serviceId === 'vehicle'">Note:</strong> Due to nature of service, no cancellations.
+        <strong *ngIf="serviceId === 'housekeeping'">Note:</strong> Cannot offer changes to time slot once booked.
+        <strong *ngIf="serviceId === 'water'">Note:</strong> Empty cans must be returned within 7 days.
+    </div>
+
+</div>
+
+<!-- Footer -->
+<div class="footer-actions">
+    <button class="book-btn" [disabled]="!canBook()" (click)="confirmBooking()">
+        {{ serviceId === 'water' ? 'Order water can' : (serviceId === 'housekeeping' ? 'Book Slot' : 'Start
+        Subscription') }}
+    </button>
+</div>

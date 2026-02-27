@@ -1,0 +1,176 @@
+/* =========================
+   NOTIFICATIONS PAGE
+========================= */
+
+.notifications-page {
+    min-height: 100vh;
+    background-color: #ffffff;
+    color: #000000;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header - Dark bar at top */
+.notif-header {
+    background-color: #0a0a0a;
+    color: #ffffff;
+    padding: 16px 20px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+}
+
+.header-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+}
+
+.booking-id {
+    padding: 6px 16px;
+    border-radius: 20px;
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    font-size: 12px;
+    font-weight: 500;
+    color: #ffffff;
+    background: transparent;
+}
+
+.notif-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.notif-icon img {
+    width: 28px;
+    height: 28px;
+}
+
+/* Page Title */
+.page-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 24px 0 0 0;
+    padding: 0 20px 16px 20px;
+    color: #000000;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* Notification List */
+.notification-list {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+
+/* Single Notification Card */
+.notification-card {
+    padding: 20px;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.2s;
+    cursor: pointer;
+}
+
+.notification-card:hover {
+    background-color: #fafafa;
+}
+
+.notification-card.read {
+    opacity: 0.6;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.type-tag {
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.type-tag[data-type="System Message"] {
+    background-color: #e3f2fd;
+    color: #1976d2;
+}
+
+.type-tag[data-type="Ticket Related"] {
+    background-color: #fff3e0;
+    color: #f57c00;
+}
+
+.type-tag[data-type="Property Broadcast"] {
+    background-color: #f3e5f5;
+    color: #7b1fa2;
+}
+
+.notification-card .time {
+    font-size: 12px;
+    color: #999999;
+}
+
+.notification-card p {
+    font-size: 14px;
+    color: #333333;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* States */
+.loading-state,
+.empty-state {
+    padding: 60px 20px;
+    text-align: center;
+    color: #999999;
+}
+
+.spinner {
+    width: 30px;
+    height: 30px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #d4af37;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 16px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .page-title {
+        font-size: 24px;
+    }
+
+    .notification-card {
+        padding: 16px;
+    }
+}

@@ -1,0 +1,61 @@
+﻿<div class="splinty-container">
+    <!-- Header -->
+    <header class="header">
+        <button class="back-btn" (click)="goBack()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M15 18l-6-6 6-6" />
+            </svg>
+        </button>
+
+        <div class="header-center">
+
+            <div class="booking-id">{{ userId || 'Loading...' }}</div>
+        </div>
+
+        <button class="notification-btn" (click)="openNotifications()">
+            <img src="assets/images/notification-icon.svg" alt="Notifications" />
+        </button>
+    </header>
+
+    <!-- Content -->
+    <section class="content-section">
+        <h1 class="page-title">Co-occupants</h1>
+
+        @if(maxOccupancy) {
+        <div class="occupancy-disclaimer">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+                <line x1="12" y1="9" x2="12" y2="13" />
+                <line x1="12" y1="17" x2="12.01" y2="17" />
+            </svg>
+            <span>Maximum occupancy: {{ maxOccupancy }}. Only this number of people is allowed access at a time.</span>
+        </div>
+        }
+
+        @if(loading) {
+        <div class="loading-state">
+            <div class="spinner"></div>
+            <p>Loading users...</p>
+        </div>
+        }
+
+        @if(error) {
+        <div class="error-state">
+            <p>{{ error }}</p>
+            <button class="retry-btn" (click)="loadSplintyUsers()">Retry</button>
+        </div>
+        }
+
+        @if(users.length > 0 && !loading) {
+        <div class="users-list">
+            <div class="user-card" *ngFor="let user of users">
+                <img [src]="user.avatar" alt="User avatar" class="user-avatar" />
+                <div class="user-info">
+                    <div class="user-name">{{ user.name }}</div>
+                    <div class="user-phone">{{ user.phone }}</div>
+                </div>
+            </div>
+        </div>
+        }
+    </section>
+</div>

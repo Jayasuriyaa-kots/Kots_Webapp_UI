@@ -1,0 +1,133 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    height: 100dvh;
+    /* iOS dynamic viewport */
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    overflow: hidden;
+    /* 🚫 prevent scroll */
+}
+
+.select-booking-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.select-booking-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* ✅ vertical centering */
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* ---------------- ILLUSTRATION ---------------- */
+
+.illustration {
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 220px;
+    flex-shrink: 0;
+}
+
+.illustration img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* ---------------- WELCOME TEXT ---------------- */
+
+.welcome-text {
+    margin-bottom: 20px;
+}
+
+.welcome-text h1 {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0;
+    color: #ffffff;
+}
+
+/* ---------------- BOOKING LIST ---------------- */
+
+.booking-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.booking-card {
+    display: flex;
+    align-items: center;
+    padding: 14px 16px;
+    background-color: #2a2a2a;
+    border: 1px solid #333333;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.booking-card:hover {
+    background-color: #333333;
+    border-color: #444444;
+}
+
+.booking-card.highlighted {
+    border: 2px solid #d4af37;
+}
+
+.booking-card.highlighted .arrow-icon {
+    color: #d4af37;
+}
+
+.line-indicator {
+    width: 4px;
+    height: 28px;
+    margin-right: 14px;
+    background-color: #d4af37;
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+
+.booking-text {
+    flex: 1;
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.arrow-icon {
+    font-size: 20px;
+    color: #888888;
+}
+
+/* ---------------- SUPPORT TEXT ---------------- */
+
+.support-text {
+    font-size: 13px;
+    color: #b3b3b3;
+    margin: 0;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.support-link {
+    color: #d4af37;
+    cursor: pointer;
+    text-decoration: underline;
+}

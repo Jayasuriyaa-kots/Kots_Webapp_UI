@@ -1,0 +1,26 @@
+<div class="onboarding-container" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)">
+  <div class="slide-content">
+    <!-- Illustration -->
+    <div class="illustration">
+      <img [src]="currentSlideData.image" [alt]="currentSlideData.title">
+    </div>
+
+    <!-- Title and Description -->
+    <div class="text-content">
+      <h1 class="title">{{ currentSlideData.title }}</h1>
+      <p class="description">{{ currentSlideData.description }}</p>
+    </div>
+
+    <!-- Pagination Dots -->
+    <div class="pagination-dots">
+      <span *ngFor="let slide of slides; let i = index" class="dot" [class.active]="i === currentSlide"
+        (click)="goToSlide(i); $event.stopPropagation()">
+      </span>
+    </div>
+  </div>
+
+  <!-- Skip/Login Button -->
+  <button class="skip-button" [class.login-btn]="isLastSlide" (click)="skip(); $event.stopPropagation()">
+    {{ buttonText }}
+  </button>
+</div>

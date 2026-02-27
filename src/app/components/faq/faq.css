@@ -1,0 +1,280 @@
+:host {
+    display: block;
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+    background-color: #ffffff;
+}
+
+.faq-container {
+    min-height: 100vh;
+    background: linear-gradient(180deg, #0a0a0a 0%, #0a0a0a 15%, #ffffff 15%);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.header {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    padding: 20px;
+    background-color: transparent;
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    text-align: center;
+}
+
+.company-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.booking-id {
+    padding: 6px 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    font-size: 12px;
+    font-weight: 600;
+    color: #ffffff;
+    background: transparent;
+}
+
+.notification-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.notification-btn img {
+    width: 24px;
+    height: 24px;
+}
+
+/* Content Section */
+.content-section {
+    flex: 1;
+    padding: 30px 20px;
+    background-color: #ffffff;
+}
+
+.page-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #0a0a0a;
+    margin: 0 0 24px 0;
+}
+
+/* FAQ List */
+.faq-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.faq-item {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.faq-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.faq-header:hover {
+    opacity: 0.7;
+}
+
+.faq-question {
+    font-size: 15px;
+    font-weight: 500;
+    color: #0a0a0a;
+    flex: 1;
+    padding-right: 16px;
+    line-height: 1.4;
+}
+
+.faq-arrow {
+    color: #d4af37;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.faq-arrow.rotated {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    padding: 0 0 20px 0;
+    animation: slideDown 0.3s ease;
+}
+
+.faq-answer p {
+    font-size: 14px;
+    color: #666666;
+    line-height: 1.5;
+    margin: 0;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Loading State */
+.loading-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    color: #666666;
+}
+
+.spinner {
+    width: 32px;
+    height: 32px;
+    border: 3px solid #e0e0e0;
+    border-top-color: #d4af37;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin-bottom: 12px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Error State */
+.error-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    color: #ef4444;
+}
+
+.retry-btn {
+    margin-top: 12px;
+    padding: 10px 24px;
+    background-color: #d4af37;
+    color: #000000;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.retry-btn:hover {
+    filter: brightness(1.1);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .page-title {
+        font-size: 22px;
+    }
+
+    .faq-question {
+        font-size: 14px;
+    }
+
+    .faq-answer p {
+        font-size: 13px;
+    }
+}
+
+/* UPDATED HEADER STYLES */
+/* Header */
+.header {
+    background-color: #0a0a0a;
+    color: #ffffff;
+    padding: 16px 20px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    margin: 0 -20px;
+}
+
+.back-btn,
+.notification-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+}
+
+.header-center h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+    color: #ffffff;
+}
+
+.booking-id {
+    padding: 6px 16px;
+    border-radius: 20px;
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    font-size: 12px;
+    font-weight: 500;
+    color: #ffffff;
+    background: transparent;
+}
+
+.notification-btn {
+    position: relative;
+}
+
+.dot {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 8px;
+    height: 8px;
+    background-color: #ffd700;
+    border-radius: 50%;
+}

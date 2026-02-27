@@ -1,0 +1,24 @@
+<div class="select-booking-container">
+    <div class="select-booking-content">
+        <div class="illustration">
+            <img src="assets/images/choosebookingid.png" alt="Choose Booking">
+        </div>
+
+        <div class="welcome-text">
+            <h1>Choose the booking ID</h1>
+        </div>
+
+        <div class="booking-list">
+            <div class="booking-card" *ngFor="let booking of bookingIds; let i = index" [class.highlighted]="i === 1"
+                (click)="selectBooking(booking)">
+                <div class="line-indicator"></div>
+                <span class="booking-text">{{ booking.displayName }}</span>
+                <span class="arrow-icon">></span>
+            </div>
+        </div>
+
+        <p class="support-text">
+            If any issue contact <span class="support-link">support</span>
+        </p>
+    </div>
+</div>

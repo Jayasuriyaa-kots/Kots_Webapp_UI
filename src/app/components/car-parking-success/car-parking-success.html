@@ -1,0 +1,69 @@
+﻿<div class="container">
+    <!-- Header -->
+    <header class="header">
+        <button class="back-btn" (click)="goBack()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18L9 12L15 6" stroke="white" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+        </button>
+        <div class="header-center">
+
+            <span class="booking-id">{{ userId }}</span>
+        </div>
+        <button class="notification-btn" (click)="openNotifications()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+            </svg>
+            <span class="dot"></span>
+        </button>
+    </header>
+
+    <h1 class="page-title">Car Parking (CP)</h1>
+
+    <div class="main-content">
+        <!-- Illustration -->
+        <div class="illustration-container">
+            <!-- Reuse Illustration -->
+            <img src="assets/images/carparking.png" alt="Car Parking" class="illustration"
+                onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iI2Y1ZjVmNSIvPjx0ZXh0IHg9IjUwIiB5PSI1MCIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2NjYyI+Q2FyIFBhcmtpbmc8L3RleHQ+PC9zdmc+'">
+        </div>
+
+        <!-- Success Message -->
+        <h2 class="success-message">Car parking subscribed!</h2>
+
+        <!-- Details Card -->
+        <div class="details-card">
+            <div class="row">
+                <span class="label">Parking allotment <span class="info-icon">i</span></span>
+                <span class="value green-text">CP2</span>
+            </div>
+
+            <div class="row">
+                <span class="label">Charges</span>
+                <span class="value">Rs.200</span>
+            </div>
+
+            <div class="divider-light"></div>
+
+            <div class="breakdown-label">Charges break- down</div>
+
+            <div class="row small-row">
+                <span class="label-small">Amount</span>
+                <span class="value-small">Rs.200</span>
+            </div>
+
+            <div class="row small-row">
+                <span class="label-small">From - 15.7.2024</span>
+                <span class="value-small">To - 30.7.2024</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer actions -->
+    <div class="footer">
+        <button class="btn-home" (click)="goToHome()">Go to home</button>
+    </div>
+</div>

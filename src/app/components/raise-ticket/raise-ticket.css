@@ -1,0 +1,357 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    height: 100vh;
+    height: 100dvh;
+    /* Dynamic viewport for mobile */
+    background-color: #fff;
+    color: #333;
+    overflow: hidden;
+}
+
+.raise-ticket-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0 20px;
+    background-color: #fff;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Header */
+.header {
+    background-color: #0a0a0a;
+    color: #ffffff;
+    padding: 14px 20px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    margin: 0 -20px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.back-btn,
+.notification-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    text-align: center;
+}
+
+.header-center h3 {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0;
+    color: #ffffff;
+}
+
+.booking-id {
+    padding: 5px 14px;
+    border-radius: 20px;
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    font-size: 11px;
+    font-weight: 500;
+    color: #ffffff;
+    background: transparent;
+}
+
+.notification-btn {
+    position: relative;
+}
+
+.dot {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 8px;
+    height: 8px;
+    background-color: #ffd700;
+    border-radius: 50%;
+}
+
+.page-title {
+    font-size: 1.6em;
+    font-weight: bold;
+    margin: 14px 0 12px 0;
+    color: #2c2c2c;
+    flex-shrink: 0;
+}
+
+/* Forms */
+.form-group {
+    margin-bottom: 14px;
+    flex-shrink: 0;
+}
+
+.form-group label {
+    display: block;
+    font-size: 1em;
+    margin-bottom: 6px;
+    color: #2c2c2c;
+}
+
+.select-wrapper {
+    position: relative;
+    background-color: #e6e6d5;
+    border-radius: 8px;
+}
+
+select {
+    width: 100%;
+    padding: 12px;
+    padding-right: 40px;
+    /* Space for arrow */
+    background-color: transparent;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    appearance: none;
+    /* Hide default arrow */
+    cursor: pointer;
+}
+
+.select-arrow {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #333;
+}
+
+textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: #e6e6d5;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    resize: none;
+    box-sizing: border-box;
+}
+
+/* Upload Section */
+.upload-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.upload-btn {
+    flex: 1;
+    background-color: #e6e6d5;
+    border: none;
+    border-radius: 10px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    min-height: 80px;
+}
+
+.icon-circle {
+    width: 36px;
+    height: 36px;
+    background-color: #ececde;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+
+.upload-btn span {
+    font-size: 0.85em;
+    color: #333;
+}
+
+.file-list {
+    margin-top: 8px;
+    font-size: 0.85em;
+    color: #666;
+}
+
+/* Submit Button */
+.submit-btn {
+    background-color: #a6942e;
+    color: #fff;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    padding: 14px;
+    width: 100%;
+    margin-top: auto;
+    margin-bottom: max(16px, env(safe-area-inset-bottom));
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+/* Photo Preview Grid */
+.photo-preview-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.photo-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    aspect-ratio: 1;
+    background-color: #f0f0f0;
+}
+
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.remove-photo-btn {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 22px;
+    height: 22px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+.photo-name {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    font-size: 9px;
+    padding: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Responsive for small screens */
+@media (max-height: 650px) {
+    .page-title {
+        font-size: 1.4em;
+        margin: 10px 0 8px 0;
+    }
+
+    .form-group {
+        margin-bottom: 10px;
+    }
+
+    .form-group label {
+        font-size: 0.9em;
+        margin-bottom: 4px;
+    }
+
+    select,
+    textarea {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .upload-btn {
+        padding: 10px;
+        min-height: 70px;
+    }
+
+    .submit-btn {
+        padding: 12px;
+    }
+}
+
+/* UPDATED HEADER STYLES */
+/* Header */
+.header {
+    background-color: #0a0a0a;
+    color: #ffffff;
+    padding: 16px 20px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    margin: 0 -20px;
+}
+
+.back-btn,
+.notification-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+}
+
+.header-center h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+    color: #ffffff;
+}
+
+.booking-id {
+    padding: 6px 16px;
+    border-radius: 20px;
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    font-size: 12px;
+    font-weight: 500;
+    color: #ffffff;
+    background: transparent;
+}
+
+.notification-btn {
+    position: relative;
+}
+
+.dot {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 8px;
+    height: 8px;
+    background-color: #ffd700;
+    border-radius: 50%;
+}

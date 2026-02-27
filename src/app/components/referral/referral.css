@@ -1,0 +1,356 @@
+.header {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    background-color: #000;
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    padding: 8px;
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.container {
+    padding: 16px;
+    background-color: #f5f5f5;
+    min-height: calc(100vh - 60px);
+}
+
+/* Earnings Card */
+.earnings-card {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.earnings-title {
+    color: #d4af37;
+    /* Gold color */
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.earnings-subtitle {
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 24px;
+}
+
+.progress-section {
+    position: relative;
+}
+
+.progress-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.progress-bar-bg {
+    height: 12px;
+    background-color: #eee;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #d4af37, #f7d667);
+    border-radius: 6px;
+    transition: width 0.5s ease;
+}
+
+.progress-stats {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Invite Section */
+.invite-section {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.invite-btn {
+    background-color: #a89f30;
+    /* Olive/Gold tone from screenshot */
+    color: #fff;
+    border: none;
+    padding: 14px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 4px 12px rgba(168, 159, 48, 0.3);
+}
+
+.invite-subtext {
+    font-size: 12px;
+    color: #888;
+    margin-top: 12px;
+}
+
+/* Manual Invite Form */
+.manual-invite-form {
+    background: #fff;
+    padding: 16px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.whatsapp-share-btn {
+    background-color: #25D366;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    width: 100%;
+    cursor: pointer;
+}
+
+/* Link Section */
+.link-section {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.link-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #888;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.link-box {
+    display: flex;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.link-text {
+    flex: 1;
+    padding: 12px;
+    font-size: 14px;
+    color: #d4af37;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background: #fdfcf5;
+}
+
+.copy-btn {
+    background: none;
+    border: none;
+    padding: 0 16px;
+    color: #a89f30;
+    font-weight: 600;
+    cursor: pointer;
+    border-left: 1px solid #eee;
+}
+
+/* Social Share */
+.social-share {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+}
+
+.social-btn.whatsapp {
+    background-color: #25D366;
+    color: #fff;
+}
+
+.social-btn.share {
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+/* Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.stat-card {
+    background: #fff;
+    padding: 16px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.stat-card.highlight {
+    background: #fdfcf5;
+    border: 1px solid #f7d667;
+}
+
+.stat-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.stat-card.highlight .stat-value {
+    color: #a89f30;
+}
+
+.stat-label {
+    font-size: 12px;
+    color: #888;
+}
+
+/* Referrals List */
+.referrals-list-section {
+    background: #fff;
+    border-radius: 12px 12px 0 0;
+    min-height: 200px;
+    padding: 16px;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+    background: #f5f5f5;
+    padding: 4px;
+    border-radius: 8px;
+    display: inline-flex;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.tab {
+    padding: 8px 24px;
+    border: none;
+    background: none;
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.tab.active {
+    background-color: #a89f30;
+    color: #fff;
+}
+
+.referral-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.avatar-circle {
+    width: 40px;
+    height: 40px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    margin-right: 12px;
+}
+
+.item-details {
+    flex: 1;
+}
+
+.item-name {
+    font-weight: 600;
+    color: #333;
+}
+
+.item-status {
+    font-size: 12px;
+    color: #f7a000;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.item-status.success {
+    color: #25D366;
+}
+
+.remind-btn {
+    background-color: #a89f30;
+    color: #fff;
+    border: none;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    color: #888;
+}

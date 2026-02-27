@@ -1,0 +1,39 @@
+﻿<div class="container">
+    <!-- Header -->
+    <header class="header">
+        <!-- Empty left for spacing -->
+        <div class="header-left"></div>
+
+        <div class="header-center">
+            <span class="booking-id">{{ bookingId }}</span>
+        </div>
+        <button class="notification-btn" (click)="openNotifications()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+            </svg>
+            <span class="dot"></span>
+        </button>
+    </header>
+
+    <h1 class="page-title">Direct Payment</h1>
+
+    <!-- Main Content centered -->
+    <div class="main-content">
+        <!-- Illustration -->
+        <div class="illustration-container">
+            <img src="assets/images/paymentsuccess.png" alt="Payment Success Illustration" class="illustration"
+                onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iI2Y1ZjVmNSIvPjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjQwIiBmaWxsPSIjNGNhZjUwIi8+PHBhdGggZD0iTTMwIDUwIEw0NSA2NSBMNzAgMzUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iNSIgZmlsbD0ibm9uZSIvPjwvc3ZnPg=='">
+        </div>
+
+        <h2 class="success-title">Link opened</h2>
+        <p class="success-message">If you have done the payment, it will be reflected to you within 24 hours.</p>
+    </div>
+
+    <!-- Footer actions -->
+    <div class="footer">
+        <button class="btn-download" (click)="downloadInvoice()" [disabled]="!invoiceId">Download Invoice</button>
+        <button class="btn-home" (click)="backToHome()">Go to Home</button>
+    </div>
+</div>

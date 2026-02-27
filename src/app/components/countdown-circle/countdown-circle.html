@@ -1,0 +1,26 @@
+<div class="circular-countdown">
+    <svg class="progress-ring" viewBox="0 0 200 200">
+        <circle class="progress-ring-bg" cx="100" cy="100" r="90" />
+        <circle class="progress-ring-circle" cx="100" cy="100" r="90" [style.stroke-dasharray]="circumference"
+            [style.stroke-dashoffset]="progressOffset" />
+    </svg>
+
+    <div class="circular-time-display">
+        <div class="time-row">
+            <div class="time-unit">
+                <span class="time-number">{{days}}</span>
+                <span class="time-unit-label">DAYS</span>
+            </div>
+            <span class="time-separator">:</span>
+            <div class="time-unit">
+                <span class="time-number">{{minutes}}</span>
+                <span class="time-unit-label">MIN</span>
+            </div>
+            <span class="time-separator">:</span>
+            <div class="time-unit">
+                <span class="time-number">{{seconds}}</span>
+                <span class="time-unit-label">SEC</span>
+            </div>
+        </div>
+    </div>
+</div>

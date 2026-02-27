@@ -1,0 +1,76 @@
+:host {
+    display: block;
+}
+
+.circular-countdown {
+    position: relative;
+    width: 260px;
+    height: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.progress-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.progress-ring-bg {
+    fill: none;
+    stroke: #f0f0f0;
+    stroke-width: 6;
+}
+
+.progress-ring-circle {
+    fill: none;
+    stroke: #AFA11E;
+    stroke-width: 6;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.3s ease;
+}
+
+.circular-time-display {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.time-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.time-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.time-number {
+    font-size: 32px;
+    font-weight: 700;
+    color: #2c2c2c;
+    line-height: 1;
+}
+
+.time-unit-label {
+    font-size: 9px;
+    font-weight: 600;
+    color: #666;
+    letter-spacing: 0.5px;
+    margin-top: 4px;
+}
+
+.time-separator {
+    font-size: 32px;
+    font-weight: 700;
+    color: #2c2c2c;
+    margin-top: -14px;
+}

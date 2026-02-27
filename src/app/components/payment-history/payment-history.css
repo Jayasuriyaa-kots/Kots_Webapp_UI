@@ -1,0 +1,280 @@
+:host {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    background-color: #ffffff !important;
+    overflow: hidden !important;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.payment-history-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+/* ── Header ── */
+.header {
+    background-color: #0a0a0a;
+    color: #ffffff;
+    padding: 16px 20px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.back-btn,
+.notification-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+}
+
+.header-center h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+    color: #ffffff;
+}
+
+.booking-id {
+    padding: 6px 16px;
+    border-radius: 20px;
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    font-size: 12px;
+    font-weight: 500;
+    color: #ffffff;
+    background: transparent;
+}
+
+.notification-btn {
+    position: relative;
+}
+
+.dot {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 8px;
+    height: 8px;
+    background-color: #ffd700;
+    border-radius: 50%;
+}
+
+/* ── Scrollable Content ── */
+.content-section {
+    flex: 1;
+    padding: 20px;
+    background-color: #ffffff;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Titles */
+.page-title {
+    font-size: 2em;
+    font-weight: bold;
+    margin: 0 0 5px 0;
+    color: #2c2c2c;
+    line-height: 1.2;
+}
+
+.subtitle-link {
+    color: #a6942e;
+    text-decoration: underline;
+    font-size: 0.95em;
+    margin-bottom: 24px;
+    display: inline-block;
+}
+
+/* Current Due Card */
+.current-due-card {
+    background-color: #e6e6d5;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #f0f0f0;
+}
+
+.amount {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0;
+    color: #333;
+}
+
+.note {
+    font-size: 0.8em;
+    color: #666;
+    margin: 5px 0 0 0;
+}
+
+/* Pay Rent Button */
+.pay-btn {
+    background-color: #AFA11E;
+    color: #000;
+    border: none;
+    border-radius: 37px;
+    padding: 2px 9px;
+    width: 109px;
+    height: 39px;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    white-space: nowrap;
+    box-shadow: 0px 4px 0px rgba(175, 161, 30, 0.5);
+    transition: all 0.1s ease;
+}
+
+.pay-btn:hover {
+    filter: brightness(1.05);
+}
+
+.pay-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0px 2px 0px rgba(175, 161, 30, 0.5);
+}
+
+.pay-btn-overdue {
+    background-color: #EF4444 !important;
+    color: #ffffff !important;
+    box-shadow: 0px 4px 0px rgba(239, 68, 68, 0.5) !important;
+}
+
+/* History List */
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-bottom: 40px;
+}
+
+.history-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 16px;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    background-color: #fff;
+}
+
+.icon-wrapper {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.item-details {
+    flex: 1;
+}
+
+.item-title {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin: 0;
+    color: #2c2c2c;
+}
+
+.item-date {
+    font-size: 0.9em;
+    color: #666;
+    margin: 4px 0;
+}
+
+.item-status {
+    font-size: 0.85em;
+    margin: 4px 0 0 0;
+}
+
+.status-ontime {
+    color: #2e7d32;
+}
+
+.status-late {
+    color: #d32f2f;
+}
+
+.download-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #f9f9f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    flex-shrink: 0;
+}
+
+.download-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* States */
+.loading-state,
+.error-state,
+.empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: #666;
+}
+
+.retry-btn {
+    margin-top: 15px;
+    padding: 10px 24px;
+    background-color: #AFA11E;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .page-title {
+        font-size: 1.6em;
+    }
+
+    .content-section {
+        padding: 16px;
+    }
+}

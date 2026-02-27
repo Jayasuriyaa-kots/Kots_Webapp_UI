@@ -1,0 +1,47 @@
+<div class="notifications-page">
+
+  <!-- Header -->
+  <div class="notif-header">
+    <button class="back-btn" (click)="goBack()">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M15 18L9 12L15 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </button>
+
+    <div class="header-center">
+      <span class="booking-id">{{ bookingId }}</span>
+    </div>
+
+    <div class="notif-icon">
+      <img src="assets/images/notification-icon.svg" alt="Notifications" />
+    </div>
+  </div>
+
+  <!-- Title -->
+  <h2 class="page-title">Notifications</h2>
+
+  <!-- List -->
+  <div class="notification-list">
+    @if(loading) {
+    <div class="loading-state">
+      <div class="spinner"></div>
+      <p>Loading notifications...</p>
+    </div>
+    }
+
+    @if(!loading && notifications.length === 0) {
+    <div class="empty-state">
+      <p>No notifications</p>
+    </div>
+    }
+
+    <div class="notification-card" *ngFor="let n of notifications" [class.read]="n.isRead" (click)="markAsRead(n)">
+      <div class="card-header">
+        <span class="type-tag" [attr.data-type]="n.notification_type">{{ n.notification_type }}</span>
+        <span class="time">{{ n.notification_date | date:'medium' }}</span>
+      </div>
+      <p>{{ n.message }}</p>
+    </div>
+  </div>
+
+</div>

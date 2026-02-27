@@ -1,0 +1,297 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    height: 100vh;
+    height: 100dvh;
+    /* Dynamic viewport for mobile */
+    background-color: #fff;
+    color: #333;
+    overflow: hidden;
+    /* Prevent scrolling */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* Header */
+.header {
+    background-color: #0a0a0a;
+    color: #ffffff;
+    padding: 16px 20px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    margin: 0 -20px;
+    flex-shrink: 0;
+}
+
+.back-btn,
+.notification-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    text-align: center;
+}
+
+.header-center h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+    color: #ffffff;
+}
+
+.booking-id {
+    padding: 6px 16px;
+    border-radius: 20px;
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    font-size: 12px;
+    font-weight: 500;
+    color: #ffffff;
+    background: transparent;
+}
+
+.notification-btn {
+    position: relative;
+}
+
+.dot {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 8px;
+    height: 8px;
+    background-color: #ffd700;
+    border-radius: 50%;
+}
+
+.page-title {
+    font-size: 1.8em;
+    font-weight: 800;
+    margin: 16px 0 12px 0;
+    color: #2c2c2c;
+    text-align: center;
+    flex-shrink: 0;
+    width: 100%;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+    min-height: 0;
+}
+
+.illustration-container {
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex: 1;
+    align-items: center;
+    min-height: 0;
+    /* Allow shrinking */
+}
+
+.illustration {
+    max-width: 180px;
+    height: auto;
+    max-height: 22vh;
+    /* Reduced from 40vh */
+    object-fit: contain;
+}
+
+.success-message {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #2c2c2c;
+    margin-bottom: 16px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+/* Ticket Info Card */
+.ticket-info-card {
+    background-color: #f9f9f4;
+    /* Light beige/off-white */
+    border-radius: 12px;
+    padding: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+
+.card-title {
+    font-size: 1em;
+    font-weight: bold;
+    margin: 0 0 8px 0;
+    color: #2c2c2c;
+}
+
+.dashed-line {
+    border-bottom: 2px dashed #dcdcdc;
+    /* Dashed line color */
+    margin-bottom: 12px;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    font-size: 0.85em;
+    gap: 10px;
+}
+
+.label {
+    font-weight: bold;
+    color: #2c2c2c;
+    white-space: nowrap;
+}
+
+.value {
+    color: #a6942e;
+    /* Gold color for values */
+    font-weight: bold;
+    text-align: right;
+    white-space: nowrap;
+}
+
+/* Footer */
+.footer {
+    margin-top: auto;
+    width: 100%;
+    padding: 16px 20px;
+    /* Added horizontal padding */
+    padding-bottom: max(16px, env(safe-area-inset-bottom));
+    flex-shrink: 0;
+    box-sizing: border-box;
+}
+
+.home-btn {
+    background-color: #a6942e;
+    color: #fff;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    padding: 14px;
+    width: 100%;
+    cursor: pointer;
+}
+
+/* Responsive for very small screens */
+@media (max-height: 600px) {
+    .page-title {
+        font-size: 1.4em;
+        margin: 8px 0 10px 0;
+    }
+
+    .illustration {
+        max-width: 140px;
+        max-height: 18vh;
+    }
+
+    .success-message {
+        font-size: 1.1em;
+        margin-bottom: 12px;
+    }
+
+    .ticket-info-card {
+        padding: 12px;
+    }
+
+    .home-btn {
+        padding: 12px;
+    }
+
+    .footer {
+        padding: 12px 0;
+    }
+}
+
+/* UPDATED HEADER STYLES */
+/* Header */
+.header {
+    background-color: #0a0a0a;
+    color: #ffffff;
+    padding: 16px 20px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    margin: 0 -20px;
+}
+
+.back-btn,
+.notification-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+}
+
+.header-center h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+    color: #ffffff;
+}
+
+.booking-id {
+    padding: 6px 16px;
+    border-radius: 20px;
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    font-size: 12px;
+    font-weight: 500;
+    color: #ffffff;
+    background: transparent;
+}
+
+.notification-btn {
+    position: relative;
+}
+
+.dot {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 8px;
+    height: 8px;
+    background-color: #ffd700;
+    border-radius: 50%;
+}

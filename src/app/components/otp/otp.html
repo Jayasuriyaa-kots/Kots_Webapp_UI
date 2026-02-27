@@ -1,0 +1,51 @@
+<div class="otp-container">
+    <div class="otp-content">
+
+        <div class="illustration">
+            <img src="assets/images/otp-illustration.svg" alt="OTP Verification">
+        </div>
+
+        <div class="welcome-text">
+            <h1>Verify your number</h1>
+            <p>Otp have been sent to {{ maskedPhone }}</p>
+        </div>
+
+        <!-- ✅ OTP INPUTS (continuous typing enabled) -->
+        <div class="otp-inputs">
+            <input #otp1 type="tel" class="otp-box" maxlength="1" pattern="[0-9]*" (input)="onInput(0)"
+                (keydown)="onKeyDown($event, 0)" (paste)="onPaste($event)">
+
+            <input #otp2 type="tel" class="otp-box" maxlength="1" pattern="[0-9]*" (input)="onInput(1)"
+                (keydown)="onKeyDown($event, 1)" (paste)="onPaste($event)">
+
+            <input #otp3 type="tel" class="otp-box" maxlength="1" pattern="[0-9]*" (input)="onInput(2)"
+                (keydown)="onKeyDown($event, 2)" (paste)="onPaste($event)">
+
+            <input #otp4 type="tel" class="otp-box" maxlength="1" pattern="[0-9]*" (input)="onInput(3)"
+                (keydown)="onKeyDown($event, 3)" (paste)="onPaste($event)">
+
+            <input #otp5 type="tel" class="otp-box" maxlength="1" pattern="[0-9]*" (input)="onInput(4)"
+                (keydown)="onKeyDown($event, 4)" (paste)="onPaste($event)">
+
+            <input #otp6 type="tel" class="otp-box" maxlength="1" pattern="[0-9]*" (input)="onInput(5)"
+                (keydown)="onKeyDown($event, 5)" (paste)="onPaste($event)">
+        </div>
+
+        <p class="success-message" *ngIf="successMessage">
+            {{ successMessage }}
+        </p>
+
+        <p class="error-message" *ngIf="errorMessage">
+            {{ errorMessage }}
+        </p>
+
+        <button class="primary-button" (click)="confirmOtp()">
+            Confirm
+        </button>
+
+        <p class="support-text">
+            If any issue contact <span class="support-link">support</span>
+        </p>
+
+    </div>
+</div>

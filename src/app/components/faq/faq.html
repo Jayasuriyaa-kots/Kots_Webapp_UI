@@ -1,0 +1,57 @@
+﻿<div class="faq-container">
+    <!-- Header -->
+    <header class="header">
+        <button class="back-btn" (click)="goBack()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M15 18l-6-6 6-6" />
+            </svg>
+        </button>
+
+        <div class="header-center">
+
+            <div class="booking-id">{{ userId || 'Loading...' }}</div>
+        </div>
+
+        <button class="notification-btn" (click)="openNotifications()">
+            <img src="assets/images/notification-icon.svg" alt="Notifications" />
+        </button>
+    </header>
+
+    <!-- Content -->
+    <section class="content-section">
+        <h1 class="page-title">FAQs</h1>
+
+        @if(loading) {
+        <div class="loading-state">
+            <div class="spinner"></div>
+            <p>Loading FAQs...</p>
+        </div>
+        }
+
+        @if(error) {
+        <div class="error-state">
+            <p>{{ error }}</p>
+            <button class="retry-btn" (click)="loadFAQs()">Retry</button>
+        </div>
+        }
+
+        @if(faqs.length > 0 && !loading) {
+        <div class="faq-list">
+            <div class="faq-item" *ngFor="let faq of faqs" [class.expanded]="isExpanded(faq.id)">
+                <div class="faq-header" (click)="toggleFAQ(faq.id)">
+                    <span class="faq-question">{{ faq.question }}</span>
+                    <svg class="faq-arrow" [class.rotated]="isExpanded(faq.id)" width="20" height="20"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 9l6 6 6-6" />
+                    </svg>
+                </div>
+                @if(isExpanded(faq.id)) {
+                <div class="faq-answer">
+                    <p>{{ faq.answer }}</p>
+                </div>
+                }
+            </div>
+        </div>
+        }
+    </section>
+</div>

@@ -1,0 +1,68 @@
+<div class="ticket-history-container">
+  <!-- Header -->
+  <header class="header">
+    <button class="back-btn" (click)="goBack()">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M15 18l-6-6 6-6" />
+      </svg>
+    </button>
+
+    <div class="header-center">
+      <div class="booking-id">{{ userId || 'Loading...' }}</div>
+    </div>
+
+    <button class="notification-btn" (click)="openNotifications()">
+      <img src="assets/images/notification-icon.svg" alt="Notifications" />
+    </button>
+  </header>
+
+  <!-- Content -->
+  <section class="content-section">
+    <h1 class="page-title">Ticket History</h1>
+
+    <!-- Loading State -->
+    <div *ngIf="loading" class="loading-state">
+      <div class="spinner"></div>
+      <p>Loading tickets...</p>
+    </div>
+
+    <!-- Ticket List -->
+    <div class="ticket-list" *ngIf="!loading">
+      <div class="ticket-card" *ngFor="let ticket of tickets">
+        <div class="ticket-info">
+          <span class="ticket-id">Ticket ID - {{ ticket.ticket_number }}</span>
+          <h4 class="ticket-type">{{ ticket.classification }}</h4>
+          <p class="ticket-category" *ngIf="ticket.category">{{ ticket.category }}</p>
+          <span class="ticket-date">{{ formatDate(ticket.created_at) }}</span>
+        </div>
+
+        <div class="ticket-status-row">
+          <div class="status-badge">
+            <span class="status-label">Status</span>
+            <span class="status-dot" [class.closed]="ticket.status === 'Closed'"
+              [class.open]="ticket.status === 'Open'"></span>
+            <span class="status-text" [class.closed]="ticket.status === 'Closed'"
+              [class.open]="ticket.status === 'Open'">
+              {{ ticket.status }}
+            </span>
+          </div>
+          <span class="closed-date" *ngIf="ticket.status === 'Closed' && ticket.final_resolution_at">
+            {{ formatDate(ticket.final_resolution_at) }}
+          </span>
+        </div>
+      </div>
+
+      <!-- Empty State -->
+      <div *ngIf="tickets.length === 0" class="empty-state">
+        <p>No tickets found</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Raise New Ticket Button (Outside scroll to stay fixed relative to viewport if needed, but container is flex-col) -->
+  <div class="footer-action">
+    <button class="raise-ticket-btn" (click)="raiseNewTicket()">
+      Raise new ticket
+    </button>
+  </div>
+</div>
